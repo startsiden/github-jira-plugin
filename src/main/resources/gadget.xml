@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+    <ModulePrefs title="__MSG_gadget.title__" directory_title="__MSG_gadget.title__"
+        description="__MSG_gadget.description__">
+        <Optional feature="gadget-directory">
+            <Param name="categories">
+                JIRA
+            </Param>
+        </Optional>
+        <Locale messages="__ATLASSIAN_BASE_URL__/download/resources/jira-gadget-tutorial-plugin/i18n/ALL_ALL.xml"/>
+    </ModulePrefs>
+    <Content type="html" view="profile">
+        <![CDATA[
+        #requireResource("com.atlassian.jira.gadgets:common")
+        #includeResources()
+ 
+        <h1>Hello from the Atlassian Gadget Tutorial!</h1>
+ 
+        <script type="text/javascript">
+            (function () {
+                var gadget = AJS.Gadget({
+                    baseUrl: "__ATLASSIAN_BASE_URL__",
+                    view: {
+                        template: function(args) {
+                            var gadget = this;
+ 
+                            var projectList = AJS.$("<ul/>");
+ 
+                            AJS.$(args.projectData.projects).each(function() {
+                                projectList.append(
+                                    AJS.$("<li/>").append(
+                                        AJS.$("<a/>").attr({
+                                            target: "_parent",
+                                            title: gadgets.util.escapeString(this.description),
+                                            href: "__ATLASSIAN_BASE_URL__" + "/browse/" + this.key
+                                        }).text(this.name)       
+                                    )
+                                );
+                            });
+ 
+                            gadget.getView().html(projectList);
+                        },
+                        args: [{
+                            key: "projectData",
+                            ajaxOptions: function() {
+                                return {
+                                    url: "/rest/tutorial-gadget/1.0/projects.json"
+                                };
+                            }
+                        }]
+                    }
+                });
+            })();
+        </script>
+        ]]>
+    </Content>
+</Module>

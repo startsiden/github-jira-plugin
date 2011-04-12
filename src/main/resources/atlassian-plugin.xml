@@ -1,7 +1,21 @@
-<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+<atlassian-plugin key="jira-gadget-tutorial-plugin" name="JIRA Gadget Tutorial Plugin" plugins-version="2">
     <plugin-info>
-        <description>${project.description}</description>
-        <version>${project.version}</version>
-        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <description>A sample plugin showing how to add a gadget to JIRA.</description>
+        <version>1.0</version>
+        <vendor name="ABC Tech" url="http://www.abctech-thailand.com" />
+        <application-version min="4.0"/>
     </plugin-info>
+    
+    <gadget key="tutorial-gadget" name="JIRA Tutorial Gadget" location="gadget.xml"/>
+    
+    <resource type="download" name="i18n/ALL_ALL.xml" location="i18n/ALL_ALL.xml">
+        <param name="content-type" value="text/xml; charset=UTF-8"/>
+    </resource>
+    
+    <rest key="tutorial-gadget-rest-resources" path="/tutorial-gadget" version="1.0">
+        <description>Provides the REST resource for the project list.</description>
+    </rest>
+    
+    <component-import key="userManager" interface="com.atlassian.sal.api.user.UserManager"/>
+    
 </atlassian-plugin>

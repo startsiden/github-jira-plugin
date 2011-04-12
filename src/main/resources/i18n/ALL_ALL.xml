@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+    <msg name="gadget.title">Test JIRA Tutorial Gadget</msg>
+    <msg name="gadget.description">A sample gadget to install into JIRA.</msg>
+</messagebundle>
