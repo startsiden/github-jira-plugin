@@ -23,5 +23,4 @@ public class GithubAction implements IssueAction {
 		// TODO Auto-generated method stub
 		return true;
 	}
-
 }
