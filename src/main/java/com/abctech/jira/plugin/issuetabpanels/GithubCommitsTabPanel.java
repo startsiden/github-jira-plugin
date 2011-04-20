@@ -11,10 +11,10 @@ import com.opensymphony.user.User;
 public class GithubCommitsTabPanel implements IssueTabPanel {
 
 	@Override
-	public List<String> getActions(Issue arg0, User arg1) {
+	public List<GithubAction> getActions(Issue arg0, User arg1) {
 		// TODO Auto-generated method stub
-		List<String>list = new ArrayList<String>();
-		list.add("Hello");
+		List<GithubAction> list = new ArrayList<GithubAction>();
+		list.add(new GithubAction());
 		return list;
 	}
 
