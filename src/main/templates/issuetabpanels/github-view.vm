@@ -1,0 +1,24 @@
+
+<table cellpadding="2" cellspacing="0" border="0" width="100%">
+<tr>
+    <td bgcolor="#f0f0f0"><b>Issue </b></td>
+</tr>
+<tr>
+    <td bgcolor="#ffffff">-----------------------------------------------</td>
+</tr>
+
+<tr>
+    <td bgcolor="#ffffff">
+        #foreach ($entry in $github.getFeed())
+            &nbsp;&nbsp;&nbsp;&nbsp;$entry.getIssueId()<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;Title : $entry.getTitle()<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;Link  : $entry.getLink()<br/>
+            <br/>$entry.getContent()
+            <br/>
+            <br/>
+        #end
+    </td>
+</tr>
+</table>
+
+<br>

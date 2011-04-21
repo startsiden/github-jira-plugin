@@ -5,7 +5,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.abctech.jira.plugins</groupId>
+    <groupId>com.abctech.jira.github</groupId>
     <artifactId>github-jira-plugin</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -59,6 +59,21 @@
                 </configuration>
             </plugin>
         </plugins>
+	<resources>
+		<resource>
+			<directory>src/main/templates/issuetabpanels</directory>
+			<excludes>
+				<exclude>github-view.vm</exclude>
+			</excludes>
+		</resource>
+		<resource>
+			<directory>src/main/templates/issuetabpanels</directory>
+			<filtering>true</filtering>
+			<includes>
+				<include>github-view.vm</include>
+			</includes>
+		</resource>
+	</resources>
     </build>
 
     <properties>

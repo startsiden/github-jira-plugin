@@ -4,4 +4,11 @@
         <version>${project.version}</version>
         <vendor name="${project.organization.name}" url="${project.organization.url}" />
     </plugin-info>
+    <issue-tabpanel key="github-commits-tabpanel" name="Github Commits Tab Panel"
+        class="com.abctech.jira.github.issuetabpanels.changes.GithubTabPanel">
+        <description>Show Github commits related to an issue in an issue tab panel.</description>
+        <label>Github</label>
+	<resource type="velocity" name="view" location="github-view.vm"/>
+    </issue-tabpanel>
 </atlassian-plugin>
+
