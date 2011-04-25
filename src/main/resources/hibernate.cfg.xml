@@ -31,7 +31,7 @@
 		<!-- Drop and re-create the database schema on startup -->
 		<property name="hbm2ddl.auto">update</property>
 
-		<mapping resource="com/abctech/hibernate/tutorial/domain/Event.hbm.xml" />
+		<mapping resource="com/abctech/jira/github/model/Entry.hbm.xml" />
 
 	</session-factory>
 
