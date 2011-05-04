@@ -1,0 +1,44 @@
+The Git/Jira Integration Project
+==================================
+
+Collaboration
+---------------------
+
+- Jira for tracking issue and task at http://bugs.startsiden.no
+    Project: Sandbox > Git/Jira Integration
+
+- Github for code collaboration @ https://github.com/startsiden/github-jira-plugin
+
+- Source code url: ``git@github.com:startsiden/github-jira-plugin.git``
+
+Information for coding and development
+--------------------------------------
+
+- `Atlassian Developer Network > Atlassian Plugin SDK <http://confluence.atlassian.com/display/DEVNET/Welcome+to+the+Atlassian+Developer+Network>`_
+
+- `Apache Maven <http://maven.apache.org/>`_ (It's included in Atlassain Plugin SDK)
+
+Setup the project
+------------------------
+
+This setup follow the instruction in Atlassian Developer Network.
+
+Setup Atlassian Plugin SDK Evironment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Follow instructions on page `Setting up your Plugin Development Environment <http://confluence.atlassian.com/display/DEVNET/Setting+up+your+Plugin+Development+Environment>`_
+
+**Make sure you add the atlassian-plugin-sdk/bin to your PATH so you can use script such as atlas-run, atlas-mvn, atlas-cli etc.**
+
+
+Setup github-jira-plugin project to work with Atlassian Plugin SDK
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Get source code from `git@github.com:startsiden/github-jira-plugin.git` for example::
+
+    git clone git@github.com:startsiden/github-jira-plugin.git
+    
+#. Change directory to ``github-jira-plugin/``::
+    
+    cd github-jira-plugin
+    
+#. As the Atlassian Plugin SDK Evironment is setup in previous step, 

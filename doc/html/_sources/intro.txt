@@ -1,0 +1,24 @@
+Introduction
+===================
+
+Where's from
+-------------------
+This project was started from the discussion in training retrospective. We've 
+found that it's confused to look back and forth between the comment
+in github and Jira to read the comment or commit for the issue-id
+
+What we think
+-----------------
+There must have a better way to link these information together. Our plan is to 
+
+1. Get information from github feed about commits and comments (which contained
+   the bug-id information)
+2. Store the information in Jira Database.
+3. Link the bug-id to Jira so it will be displayed in the issue page
+   (comment/commit tabs) in Jira
+   
+How to do that
+------------------
+Write **Jira Plugin** to do the job (Java Language)
+
+
