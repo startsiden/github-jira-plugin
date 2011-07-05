@@ -1,25 +1,19 @@
 package com.abctech.jira.github.issuetabpanels.changes;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
-import com.abctech.jira.github.feedreader.Feed;
+import com.abctech.jira.github.feedreader.*;
 import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.plugin.issuetabpanel.AbstractIssueAction;
 import com.atlassian.jira.plugin.issuetabpanel.IssueTabPanelModuleDescriptor;
 import com.atlassian.jira.util.JiraKeyUtils;
 import com.atlassian.plugin.*;
+import org.apache.log4j.Logger;
 import org.ofbiz.core.util.UtilMisc;
 import webwork.action.Action;
 
 import com.abctech.jira.github.feedreader.Feed;
-import com.abctech.jira.github.feedreader.FeedMessage;
-import com.abctech.jira.github.feedreader.RSSFeedParser;
 
 /**
  * One item in the 'Git Commits' tab.
@@ -27,6 +21,7 @@ import com.abctech.jira.github.feedreader.RSSFeedParser;
 public class GithubAction extends AbstractIssueAction {
 
 	protected final IssueTabPanelModuleDescriptor descriptor;
+    private static Logger log = Logger.getLogger(GithubTabPanel.class);
 
 	protected Feed feed;
 	
@@ -34,11 +29,12 @@ public class GithubAction extends AbstractIssueAction {
 		super(descriptor);
 		this.descriptor = descriptor;
 		this.feed = feed;
+        log.info("In the mix in action constructor!");
 		// TODO Auto-generated constructor stub
 	}
     
     public String getHtml(Action webAction) {
-		// TODO Auto-generated method stub
+        log.info("In the mix in getHTML!");
     	Map params = UtilMisc.toMap("webAction", webAction, "github", this);
         return this.descriptor.getHtml("view", params);
 	}
@@ -50,15 +46,16 @@ public class GithubAction extends AbstractIssueAction {
 	protected void populateVelocityParams(Map params) {
         params.put("github", this);
         params.put("msg", "Test Message");
+        log.info("In the mix in populateVelocity!");
     }
 	
     public Date getTimePerformed() {
         return null;
     }
     
-    public List<FeedMessage> getFeed()
+    public Collection<FeedMessage> getFeed()
     {
-      return this.feed.getMessages();
+      return this.feed.events;
     }
 
 
