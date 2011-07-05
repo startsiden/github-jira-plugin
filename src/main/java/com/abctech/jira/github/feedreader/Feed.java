@@ -1,21 +1,20 @@
 package com.abctech.jira.github.feedreader;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /*
- * Stores an RSS feed
+ * Stores an JSON feed
  */
 public class Feed {
-	
-		  
-	final List<FeedMessage> entries = new ArrayList<FeedMessage>();
+    public Collection<FeedMessage> events; // = new ArrayList<FeedMessage>();
+    public String key;
+    public String _id;
 
-	public Feed() { }
-
-	public List<FeedMessage> getMessages() {
-		return entries;
-	}
-
-
+    public void add(String text) {
+        FeedMessage msg = new FeedMessage();
+        msg.text = text;
+        events.add(msg);
+    }
 }
