@@ -8,7 +8,12 @@
         class="com.abctech.jira.github.issuetabpanels.changes.GithubTabPanel">
         <description>Show Github commits related to an issue in an issue tab panel.</description>
         <label>Github</label>
-	<resource type="velocity" name="view" location="github-view.vm"/>
+	    <resource type="velocity" name="view" location="templates/issuetabpanels/github-view.vm"/>
     </issue-tabpanel>
+   <web-resource key="github-resource-js" name="Github JavaScript">
+       <dependency>jira.webresources:jira-global</dependency>
+       <resource type="download" name="github.css" location="templates/plugins/github/css/github.css"/>
+       <!-- <resource type="download" name="github.js" location="templates/plugins/github/scripts/subversion.js"/> -->
+   </web-resource>
 </atlassian-plugin>
 
