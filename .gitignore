@@ -2,3 +2,6 @@
 .project
 .settings
 target
+github-jira-plugin.iml
+github-jira-plugin.ipr
+github-jira-plugin.iws
