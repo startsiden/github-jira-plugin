@@ -1,0 +1,6 @@
+<ul class="github">
+    #foreach ($entry in $github.getFeed())
+        <li>$entry.getText()</li>
+    #end
+
+</ul>

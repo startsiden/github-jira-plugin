@@ -36,32 +36,17 @@
             <version>${jira.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- dep on Jackson for parsing JSON -->
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>3.6.3.Final</version>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.8.2</version>
         </dependency>
-        <!-- Hibernate uses slf4j for logging, for our purposes here use 
-            the simple backend -->
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.6.1</version>
-        </dependency>
-        
-        <!-- Hibernate gives you a choice of bytecode providers between cglib 
-            and javassist -->
-        <dependency>
-            <groupId>javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>3.9.0.GA</version>
-        </dependency>
-        
-        <!-- Use org.hsqldb for development process -->
-        <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>2.0.0</version>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>1.8.2</version>
         </dependency>
     </dependencies>
 
@@ -75,6 +60,7 @@
                 <configuration>
                     <productVersion>${jira.version}</productVersion>
                     <productDataVersion>${jira.data.version}</productDataVersion>
+                    <log4jProperties>src/log4j.properties</log4jProperties>
                 </configuration>
             </plugin>
             <plugin>
@@ -86,24 +72,25 @@
             </plugin>
         </plugins>
 	<resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+            <includes>
+                <include>atlassian-plugin.xml</include>
+            </includes>
+        </resource>
 		<resource>
-			<directory>src/main/templates/issuetabpanels</directory>
+			<directory>src/main/resources</directory>
+            <filtering>false</filtering>
 			<excludes>
-				<exclude>github-view.vm</exclude>
+				<exclude>atlassian-plugin.xml</exclude>
 			</excludes>
-		</resource>
-		<resource>
-			<directory>src/main/templates/issuetabpanels</directory>
-			<filtering>true</filtering>
-			<includes>
-				<include>github-view.vm</include>
-			</includes>
 		</resource>
 	</resources>
     </build>
 
     <properties>
-        <jira.version>4.3</jira.version>
+        <jira.version>4.3.2</jira.version>
         <jira.data.version>4.3</jira.data.version>
     </properties>
 
