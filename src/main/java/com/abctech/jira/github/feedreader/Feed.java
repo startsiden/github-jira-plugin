@@ -13,8 +13,15 @@ public class Feed {
     public String _id;
 
     public void add(String text) {
+        add(text, "unknown");
+    }
+    public void add(String text, String id) {
+        if (events == null) {
+            events = new ArrayList<FeedMessage>();
+        }
         FeedMessage msg = new FeedMessage();
         msg.text = text;
+        msg.id = id;
         events.add(msg);
     }
 }

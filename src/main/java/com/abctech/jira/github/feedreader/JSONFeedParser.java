@@ -1,9 +1,11 @@
 package com.abctech.jira.github.feedreader;
 
+import com.sun.mail.iap.ConnectionException;
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;
+import java.net.ConnectException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -31,6 +33,8 @@ public class JSONFeedParser {
         log.info("attempting to read from " + url);
         try {
             feed = m.readValue(url, Feed.class);
+        } catch(ConnectException e) {
+            feed.add("Error connecting to webservice. Check settings?", "error");
         } catch(IOException e) {
              log.error("ERROR Parsing JSON: ", e);
         }
