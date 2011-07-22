@@ -1,10 +1,12 @@
 package com.abctech.jira.github.issuetabpanels.changes;
 
+import java.net.ConnectException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.atlassian.jira.util.velocity.VelocityRequestContextFactory;
 import com.atlassian.plugin.webresource.WebResourceManager;
+import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
 import org.apache.log4j.Logger;
 
 import com.atlassian.jira.issue.Issue;
@@ -21,13 +23,18 @@ public class GithubTabPanel extends AbstractIssueTabPanel {
     private final WebResourceManager webResourceManager;
     private final VelocityRequestContextFactory requestContextFactory;
 
+    private final PluginSettingsFactory settingsFactory;
 
     private static Logger log = Logger.getLogger(GithubTabPanel.class);
 	
-	public GithubTabPanel(PermissionManager permissionManager, WebResourceManager webResourceManager, VelocityRequestContextFactory requestContextFactory) {
+	public GithubTabPanel(PermissionManager permissionManager,
+                          WebResourceManager webResourceManager,
+                          VelocityRequestContextFactory requestContextFactory,
+                          PluginSettingsFactory psf) {
 		this.permissionManager = permissionManager;
         this.webResourceManager = webResourceManager;
         this.requestContextFactory = requestContextFactory;
+        this.settingsFactory = psf;
 	}
 	
 	@Override
@@ -38,7 +45,7 @@ public class GithubTabPanel extends AbstractIssueTabPanel {
 		jiraIssueId = issue.getKey();
         log.info("ID: " + jiraIssueId);
 		//Fake IssueId
-		jiraIssueId = "ABCT-1072";
+		//jiraIssueId = "ABCT-1072";
 
 		list.add(new GithubAction(descriptor, getFeed(jiraIssueId)));
 		return list;
@@ -53,8 +60,7 @@ public class GithubTabPanel extends AbstractIssueTabPanel {
 	private Feed getFeed(String issueId) {
         JSONFeedParser jsonFeedParser;
         jsonFeedParser = new JSONFeedParser();
-        return jsonFeedParser.getFeed("http://localhost:8091/?issue=" + issueId);
-        //return new Feed();
+        return jsonFeedParser.getFeed( ((String)settingsFactory.createGlobalSettings().get("github.ws.url")) +  "?issue=" + issueId);
     }
 		
 }
