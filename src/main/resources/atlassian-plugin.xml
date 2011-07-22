@@ -2,18 +2,39 @@
     <plugin-info>
         <description>${project.description}</description>
         <version>${project.version}</version>
-        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
     </plugin-info>
     <issue-tabpanel key="github-commits-tabpanel" name="Github Commits Tab Panel"
-        class="com.abctech.jira.github.issuetabpanels.changes.GithubTabPanel">
+                    class="com.abctech.jira.github.issuetabpanels.changes.GithubTabPanel">
         <description>Show Github commits related to an issue in an issue tab panel.</description>
         <label>Github</label>
-	    <resource type="velocity" name="view" location="templates/issuetabpanels/github-view.vm"/>
+        <resource type="velocity" name="view" location="templates/issuetabpanels/github-view.vm"/>
     </issue-tabpanel>
-   <web-resource key="github-resource-js" name="Github JavaScript">
-       <dependency>jira.webresources:jira-global</dependency>
-       <resource type="download" name="github.css" location="templates/plugins/github/css/github.css"/>
-       <!-- <resource type="download" name="github.js" location="templates/plugins/github/scripts/subversion.js"/> -->
-   </web-resource>
+    <web-item key="github-setup-link" name="GitHub setup link on administrators page"
+              section="system.admin/globalsettings" weight="95">
+        <label key="github.setup"/>
+        <condition class="com.atlassian.jira.plugin.webfragment.conditions.JiraGlobalPermissionCondition">
+            <param name="permission">admin</param>
+        </condition>
+        <link linkId="github-setup">/secure/GitHubSetup.jspa</link>
+    </web-item>
+    <webwork1 key="GitHubSetup" name="GitHubSetup management" class="java.lang.Object">
+        <actions>
+            <action name="com.abctech.jira.github.action.GitHubSetup" alias="GitHubSetup">
+                <view name="success">/templates/configuration/properties.vm</view>
+            </action>
+        </actions>
+    </webwork1>
+    <web-resource key="github-resource-js" name="Github JavaScript">
+        <dependency>jira.webresources:jira-global</dependency>
+        <resource type="download" name="github.css" location="templates/plugins/github/css/github.css"/>
+        <!-- <resource type="download" name="github.js" location="templates/plugins/github/scripts/subversion.js"/> -->
+    </web-resource>
+    <component-import key="pluginSettingsFactory">
+        <interface>com.atlassian.sal.api.pluginsettings.PluginSettingsFactory</interface>
+    </component-import>
+    <component-import key="requestFactory">
+        <interface>com.atlassian.sal.api.net.RequestFactory</interface>
+    </component-import>
 </atlassian-plugin>
 
