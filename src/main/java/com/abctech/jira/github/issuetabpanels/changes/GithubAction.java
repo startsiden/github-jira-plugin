@@ -57,6 +57,12 @@ public class GithubAction extends AbstractIssueAction {
     {
       return this.feed.events;
     }
+    public boolean hasFeed() {
+        if (this.feed.events == null) {
+            return false;
+        }
+        return (this.feed.events.size() > 0);
+    }
 
 
 
