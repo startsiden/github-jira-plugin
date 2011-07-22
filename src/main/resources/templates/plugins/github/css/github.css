@@ -1,3 +1,18 @@
 .github {
-    background-color: red;
+}
+.github {
+    list-style: none;
+    padding: 0;
+    margin: 1em;
+}
+.github li {
+    border-bottom: 1px solid #BBBBBB;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+.github li:last-child {
+    border-bottom: 0px solid;
+}
+.github .date {
+    float: right;
 }
