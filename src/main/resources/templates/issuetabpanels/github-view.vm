@@ -1,6 +1,20 @@
 <ul class="github">
+    #if ($github.hasFeed())
     #foreach ($entry in $github.getFeed())
-        <li>$entry.getText()</li>
+        #if ($entry.isError())
+        <li><div class="notify error">$entry.getText()</div></li>
+        #elseif ($entry.isComment())
+        <li class="comment"> <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
+            $entry.getText()
+        </li>
+        #else
+        <li>Commit <a href="$entry.url"><abbr class="sha"> $entry.getShortSha()</abbr></a>: <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
+            <a href="$entry.url">$entry.getText()</a>
+        </li>
+        #end
+    #end
+    #else
+        <li><div class="notify">No commits found</div></li>
     #end
 
 </ul>
