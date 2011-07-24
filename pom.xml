@@ -8,6 +8,12 @@
     <artifactId>github-jira-plugin</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <scm>
+        <connection>scm:git:git://github.com/startsiden/github-jira-plugin</connection>
+        <developerConnection>svm:git:git://github.com/startsiden/github-jira-plugin</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/startsiden/github-jira-plugin</url>
+    </scm>
     <organization>
         <name>ABC Tech Thailand</name>
         <url>http://www.abctech-thailand.com/</url>
