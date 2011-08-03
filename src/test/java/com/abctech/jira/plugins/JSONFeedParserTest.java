@@ -18,7 +18,7 @@ public class JSONFeedParserTest {
     @Test
     public void testParser() {
         JSONFeedParser fp = new JSONFeedParser();
-        Feed feed = fp.getFeed("http://localhost:8091/?issue=ABCT-1073");
+        Feed feed = fp.getFeed("TEST");
         assertTrue("We have events in our collection", (feed.events.size() > 0));
     }
 }
