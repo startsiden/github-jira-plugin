@@ -76,4 +76,7 @@ public class FeedMessage {
     public boolean isError() {
         return id.contains("error");
     }
+    public String getRepoUrl() {
+        return "https://github.com/" + user + "/" + repo;
+    }
 }

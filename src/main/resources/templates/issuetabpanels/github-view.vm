@@ -8,8 +8,10 @@
             $entry.getText()
         </li>
         #else
-        <li>Commit <a href="$entry.url"><abbr class="sha"> $entry.getShortSha()</abbr></a>: <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
-            <a href="$entry.url">$entry.getText()</a>
+        <li>Commit <a href="$entry.url"><abbr class="sha"> $entry.getShortSha()</abbr></a>
+            in <a href="$entry.getRepoUrl()">$entry.repo</a>
+            <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
+            <a class="content" href="$entry.url">$entry.getText()</a>
         </li>
         #end
     #end

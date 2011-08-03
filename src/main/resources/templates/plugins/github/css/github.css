@@ -10,6 +10,9 @@
     padding-bottom: 1em;
     margin-bottom: 1em;
 }
+.github .content {
+    display: block;
+}
 .github li:last-child {
     border-bottom: 0px solid;
 }
