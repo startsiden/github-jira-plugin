@@ -50,6 +50,12 @@ public class FeedMessage {
         return relative + suffix;
     }
     public String getShortSha(int chars) {
+        if (id.length() == 0) {
+            return "";
+        }
+        if (chars > id.length()) {
+            chars = id.length() - 1;
+        }
         return id.substring(0, chars);
     }
     public String getShortSha() {
