@@ -1,5 +1,8 @@
 package com.abctech.jira.github.feedreader;
 
+import org.joda.time.Instant;
+import org.joda.time.Interval;
+import org.joda.time.Period;
 import java.util.Date;
 
 /*
@@ -27,30 +30,35 @@ public class FeedMessage {
         if (date == null) {
             return "Unknown";
         }
-        Long delta = Math.round( ((double) new Date().getTime() - (double) date.getTime()) / (double) 1000);
-        // XXX: This is ugly as hell, but who cares, really?
-        String suffix = " ago";
+        Instant now = new Instant(new Date().getTime());
+        Instant then = new Instant(date.getTime());
+
+        String suf = " ago";
         String relative = "";
-        if (delta < 0) {
-            suffix = " in the future! omg!";
-        }
-        delta = Math.abs(delta);
-        if (delta < 60) {
-            relative = delta + " seconds";
-        } else if (delta < (60 * 60)) {
-            relative = delta / 60 + " minutes";
-        } else if (delta < 60 * 60 * 24) {
-            relative = delta / (60 * 60) + " hours";
-        } else if (delta < (60 * 60 * 24 * 7)) {
-            relative = delta / (60 * 60 * 24) + " days";
-        } else if (delta < (60 * 60 * 24 * 30)) { // XXX: not really 30 days in a month, but oh well
-            relative = delta / (60 * 60 * 24 * 7) + " weeks";
-        } else if (delta < (60 * 60 * 24 * 365)) { // XXX: Blablabla leapyear blablabla
-            relative = delta / (60 * 60 * 24 * 30) + " months";
+        Interval delta;
+        if (then.isAfter(now)) {
+            suf = " in the future";
+            delta = new Interval(now, then);
         } else {
-            relative = delta / (60 * 60 * 24 * 365) + " years";
+            delta = new Interval(then, now);
         }
-        return relative + suffix;
+        Period red = delta.toPeriod();
+        if (red.getYears() > 1) {
+            relative = red.getYears() + " years" + suf;
+        } else if (red.getMonths() > 1) {
+            relative = red.getMonths() + " months" + suf;
+        } else if (red.getWeeks() > 1) {
+            relative = red.getWeeks() + " weeks" + suf;
+        } else if (red.getDays() > 1) {
+            relative = red.getDays() + " days" + suf;
+        } else if (red.getHours()  > 1) {
+            relative = red.getHours() + " hours" + suf;
+        } else if (red.getMinutes() > 1) {
+            relative = red.getMinutes() + " minutes" + suf;
+        } else {
+            relative = "seconds" + suf;
+        }
+        return relative;
     }
     public String getShortSha(int chars) {
         if (id.length() == 0) {
