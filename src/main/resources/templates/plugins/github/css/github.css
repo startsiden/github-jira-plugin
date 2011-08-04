@@ -9,9 +9,21 @@
     border-bottom: 1px solid #BBBBBB;
     padding-bottom: 1em;
     margin-bottom: 1em;
+    position: relative;
+    padding-left: 50px;
 }
 .github .content {
     display: block;
+}
+.github  blockquote {
+    margin-left: 1em;
+}
+.github .gravatar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid #bbbbbb;
+    padding: 1px;
 }
 .github li:last-child {
     border-bottom: 0px solid;

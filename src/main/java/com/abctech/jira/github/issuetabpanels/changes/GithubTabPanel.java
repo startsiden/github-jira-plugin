@@ -46,8 +46,15 @@ public class GithubTabPanel extends AbstractIssueTabPanel {
         log.info("ID: " + jiraIssueId);
 		//Fake IssueId
 		//jiraIssueId = "ABCT-1072";
-
-		list.add(new GithubAction(descriptor, getFeed(jiraIssueId)));
+        if (requestContextFactory.getJiraVelocityRequestContext().getRequestParameter("debug-issue") != null) {
+            jiraIssueId = requestContextFactory.getJiraVelocityRequestContext().getRequestParameter("debug-issue");
+        }
+        String base = requestContextFactory.getJiraVelocityRequestContext().getCanonicalBaseUrl();
+        String protocol = "http";
+        if (base.matches("https://")) {
+            protocol = "https";
+        }
+		list.add(new GithubAction(descriptor, getFeed(jiraIssueId), protocol));
 		return list;
 	}
 

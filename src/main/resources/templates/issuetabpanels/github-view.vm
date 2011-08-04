@@ -4,16 +4,24 @@
         #if ($entry.isError())
         <li><div class="notify error">$entry.getText()</div></li>
         #elseif ($entry.isComment())
-        <li class="comment"> <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
+        <li class="comment">
+            #if ($entry.getGravatar())
+            <img class="gravatar" src="$github.getGravatarUrl($entry)">
+            #end
+            <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
             $entry.getText()
         </li>
         #else
-        <li>Commit <a href="$entry.url"><abbr class="sha"> $entry.getShortSha()</abbr></a>
+        <li>
+            #if ($entry.getGravatar())
+            <img class="gravatar" src="$github.getGravatarUrl($entry)">
+            #end
+            Commit <a href="$entry.url"><abbr class="sha"> $entry.getShortSha()</abbr></a>
             in <a href="$entry.getRepoUrl()">$entry.repo</a>
             <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
-            <a class="content" href="$entry.url">$entry.getText()</a>
+            <blockquote>$entry.getText()</blockquote>
         </li>
-        #end
+    #end
     #end
     #else
         <li><div class="notify">No commits found</div></li>

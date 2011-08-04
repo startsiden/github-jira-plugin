@@ -1,8 +1,10 @@
 package com.abctech.jira.github.feedreader;
 
+import com.abctech.jira.github.MD5Util;
 import org.joda.time.Instant;
 import org.joda.time.Interval;
 import org.joda.time.Period;
+
 import java.util.Date;
 
 /*
@@ -19,6 +21,8 @@ public class FeedMessage {
 	public String url;
 	public String repo;
 	public String user;
+    public String email;
+    public String gravatar;
 
 	public String getText() {
 		return text;
@@ -81,6 +85,14 @@ public class FeedMessage {
 	public String getUser() {
 		return user;
 	}
+    public String getEmail() {
+        return email;
+    }
+    public String getGravatar() {
+        if (email == null && gravatar == null) return null;
+        if (gravatar != null) return gravatar;
+        return MD5Util.md5Hex(email);
+    }
     public boolean isComment() {
         return id.contains("Comment");
     }

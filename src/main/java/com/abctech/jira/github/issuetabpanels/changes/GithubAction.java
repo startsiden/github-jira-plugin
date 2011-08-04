@@ -3,6 +3,7 @@ package com.abctech.jira.github.issuetabpanels.changes;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import com.abctech.jira.github.MD5Util;
 import com.abctech.jira.github.feedreader.*;
 import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.plugin.issuetabpanel.AbstractIssueAction;
@@ -24,10 +25,12 @@ public class GithubAction extends AbstractIssueAction {
     private static Logger log = Logger.getLogger(GithubTabPanel.class);
 
 	protected Feed feed;
+    protected String protocol;
 	
-    public GithubAction(IssueTabPanelModuleDescriptor descriptor, Feed feed) {
+    public GithubAction(IssueTabPanelModuleDescriptor descriptor, Feed feed, String protocol) {
 		super(descriptor);
 		this.descriptor = descriptor;
+        this.protocol = protocol;
 		this.feed = feed;
         log.info("In the mix in action constructor!");
 		// TODO Auto-generated constructor stub
@@ -63,7 +66,12 @@ public class GithubAction extends AbstractIssueAction {
         }
         return (this.feed.events.size() > 0);
     }
-
-
+    public String getGravatarUrl(FeedMessage entry) {
+        String start = protocol + "://";
+        if (protocol == "https") {
+            start = protocol + "://secure.";
+        }
+        return start + "gravatar.com/avatar/" + entry.getGravatar() + "?s=40";
+    }
 
 }
