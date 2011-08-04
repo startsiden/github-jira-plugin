@@ -24,6 +24,9 @@ public class FeedMessage {
 		return date;
 	}
     public String getRelativeDate() {
+        if (date == null) {
+            return "Unknown";
+        }
         Long delta = Math.round( ((double) new Date().getTime() - (double) date.getTime()) / (double) 1000);
         // XXX: This is ugly as hell, but who cares, really?
         String suffix = " ago";
