@@ -2,6 +2,7 @@ package com.abctech.jira.github.feedreader;
 
 import com.sun.mail.iap.ConnectionException;
 import org.apache.log4j.Logger;
+import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;
@@ -42,6 +43,7 @@ public class JSONFeedParser {
     }
     public Feed getFeed(URL url) {
         ObjectMapper m = new ObjectMapper();
+        m.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         Feed feed = new Feed();
         log.info("attempting to read from " + url);
         try {
