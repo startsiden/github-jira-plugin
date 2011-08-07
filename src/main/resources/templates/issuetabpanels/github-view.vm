@@ -9,7 +9,9 @@
             <img class="gravatar" src="$github.getGravatarUrl($entry)">
             #end
             <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
-            $entry.getText()
+            <a href="$entry.url"><abbr class="sha"> $entry.getShortSha()</abbr></a>
+            in <a href="$entry.getRepoUrl()">$entry.repo</a>
+            <blockquote>$entry.getText()</blockquote>
         </li>
         #else
         <li>
