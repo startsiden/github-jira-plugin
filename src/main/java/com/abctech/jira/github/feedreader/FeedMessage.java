@@ -94,7 +94,7 @@ public class FeedMessage {
         return MD5Util.md5Hex(email);
     }
     public boolean isComment() {
-        return id.contains("Comment");
+        return id.contains("comment");
     }
     public boolean isError() {
         return id.contains("error");
