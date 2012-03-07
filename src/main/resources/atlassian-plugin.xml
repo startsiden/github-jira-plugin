@@ -9,6 +9,7 @@
         <description>Show Github commits related to an issue in an issue tab panel.</description>
         <label>Github</label>
         <resource type="velocity" name="view" location="templates/issuetabpanels/github-view.vm"/>
+        <supports-ajax-load>true</supports-ajax-load>
     </issue-tabpanel>
     <web-item key="github-setup-link" name="GitHub setup link on administrators page"
               section="system.admin/globalsettings" weight="95">

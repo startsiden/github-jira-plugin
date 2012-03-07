@@ -4,6 +4,7 @@ import java.net.ConnectException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.atlassian.crowd.embedded.api.User;
 import com.atlassian.jira.util.velocity.VelocityRequestContextFactory;
 import com.atlassian.plugin.webresource.WebResourceManager;
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
@@ -12,7 +13,6 @@ import org.apache.log4j.Logger;
 import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.plugin.issuetabpanel.AbstractIssueTabPanel;
 import com.atlassian.jira.security.PermissionManager;
-import com.opensymphony.user.User;
 
 import com.abctech.jira.github.feedreader.Feed;
 import com.abctech.jira.github.feedreader.JSONFeedParser;

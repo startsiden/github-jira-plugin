@@ -1,6 +1,5 @@
 package com.abctech.jira.github.feedreader;
 
-import com.sun.mail.iap.ConnectionException;
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;
