@@ -4,6 +4,7 @@ import java.net.ConnectException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.abctech.jira.github.feedreader.FeedMessage;
 import com.atlassian.crowd.embedded.api.User;
 import com.atlassian.jira.util.velocity.VelocityRequestContextFactory;
 import com.atlassian.plugin.webresource.WebResourceManager;
@@ -41,20 +42,25 @@ public class GithubTabPanel extends AbstractIssueTabPanel {
 	public List getActions(Issue issue, User remoteUser) {
         webResourceManager.requireResource("com.abctech.jira.github.github-jira-plugin:github-resource-js");
 		String jiraIssueId;
+        Feed issueFeed;
 		List<GithubAction> list = new ArrayList<GithubAction>();
 		jiraIssueId = issue.getKey();
-        log.info("ID: " + jiraIssueId);
-		//Fake IssueId
-		//jiraIssueId = "ABCT-1072";
+
         if (requestContextFactory.getJiraVelocityRequestContext().getRequestParameter("debug-issue") != null) {
             jiraIssueId = requestContextFactory.getJiraVelocityRequestContext().getRequestParameter("debug-issue");
         }
+
+        log.info("ID: " + jiraIssueId);
+
         String base = requestContextFactory.getJiraVelocityRequestContext().getCanonicalBaseUrl();
         String protocol = "http";
         if (base.matches("https://")) {
             protocol = "https";
         }
-		list.add(new GithubAction(descriptor, getFeed(jiraIssueId), protocol));
+        issueFeed = getFeed(jiraIssueId);
+        for (FeedMessage item : issueFeed.events) {
+            list.add(new GithubAction(descriptor, item, protocol));
+        }
 		return list;
 	}
 

@@ -1,32 +1,79 @@
-<ul class="github">
-    #if ($github.hasFeed())
-    #foreach ($entry in $github.getFeed())
-        #if ($entry.isError())
-        <li><div class="notify error">$entry.getText()</div></li>
-        #elseif ($entry.isComment())
-        <li class="comment">
-            #if ($entry.getGravatar())
-            <img class="gravatar" src="$github.getGravatarUrl($entry)">
-            #end
+<div class="github-comment issue-data-block activity-github-comment twixi-block expanded">
+#if ($entry.isError())
+<div class="notify error">$entry.getText()</div>
+#elseif ($entry.isComment())
+    <div class="twixi-wrap verbose actionContainer">
+        <a class="twixi" href="#"><span class="icon twixi-opened"><span>Hide</span></span></a>
+        <div class="action-links">
+            <a class="icon icon-github" href="$entry.url"><span>Github</span></a>
+        </div>
+        <div class="action-details">
+            <a href="#" class="user-hover user-avatar" style="
+                background-image:
+                url('$github.getGravatarUrl()'),
+                url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsTAAALEwEAmpwYAAACH0lEQVQoFX1STWtTQRS9d2ZemlT7UgOxjVbrR0qliLWKWAQ3rkQCuhJ/gF24cKFL/4C4cOlCcKPbIlIRKehKsAgVKRq6SBSxFhUMiR+RJG++PJMnWRXvG4b75p5z75y5lx8sr91ZWmXnPTMRMXljsSw8JYUSwuOUCDvClyvH5df8yU7PGs/aEaB/tNtVzB+b3r1vvJAY+vaj6zxbT9ZxYundx+9KyIgVM3smNtYtnD28cG52ZDiDrO1Ocv9Z9e6Tt0KG4oJIRkqQlEJKFgpFDu0tXj0/tz0rTd+2Dckrldkj5TGEWEghJGGHRwyCtF5M7IwjxYmGhGBwBNOeYozQAKYIWvvKMhGXS7HR2loXZPbNaH+wFGczUZCOO6ESIz0L76mYz106vX+QPi3SS8zFU9A/jBwpGKxgQohWO3m6+jnFDXbv7fKbzcavLhT8Q4Yr4WNGjtuP11+/bwjyKUGQq35q3XpUNS4AQiNQpc8LLi6HwOLKhnMBjw3i7z3/kJggGYD+IpUWStAzT0NK4E2Bc9ANfngdn4lEV1s8V+gBgeAJP/NThfmpHTMT8fhoNtEah2EWmG5cmP7S6qxv/n5Vb65t/AyHJ649PDNTuF4po0Ka2sMLFrqLCUCrMFEg31yqv6y3MBV0dDLW2vQwTFuZIeoRZSMxNzmyUmuqnBJjcZRAhEsTb0UKHFcajSCDF1/UDuR1nFP/xRMu1mjrWlP+BduWGDz7ExWNAAAAAElFTkSuQmCC)
+">
+                Some user</a>
+            added a code comment
             <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
             <a href="$entry.url"><abbr class="sha"> $entry.getShortSha()</abbr></a>
             in <a href="$entry.getRepoUrl()">$entry.repo</a>
-            <blockquote>$entry.getText()</blockquote>
-        </li>
-        #else
-        <li>
-            #if ($entry.getGravatar())
-            <img class="gravatar" src="$github.getGravatarUrl($entry)">
-            #end
+
+        </div>
+        <div class="action-body flooded">
+            $entry.getText()
+        </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <div class="action-details">
+            <a class="twixi" href="#"><span class="icon twixi-opened"><span>Show</span></span></a>
+            <a href="#" class="user-hover user-avatar" style="
+                background-image:
+                url('$github.getGravatarUrl()'),
+                url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsTAAALEwEAmpwYAAACH0lEQVQoFX1STWtTQRS9d2ZemlT7UgOxjVbrR0qliLWKWAQ3rkQCuhJ/gF24cKFL/4C4cOlCcKPbIlIRKehKsAgVKRq6SBSxFhUMiR+RJG++PJMnWRXvG4b75p5z75y5lx8sr91ZWmXnPTMRMXljsSw8JYUSwuOUCDvClyvH5df8yU7PGs/aEaB/tNtVzB+b3r1vvJAY+vaj6zxbT9ZxYundx+9KyIgVM3smNtYtnD28cG52ZDiDrO1Ocv9Z9e6Tt0KG4oJIRkqQlEJKFgpFDu0tXj0/tz0rTd+2Dckrldkj5TGEWEghJGGHRwyCtF5M7IwjxYmGhGBwBNOeYozQAKYIWvvKMhGXS7HR2loXZPbNaH+wFGczUZCOO6ESIz0L76mYz106vX+QPi3SS8zFU9A/jBwpGKxgQohWO3m6+jnFDXbv7fKbzcavLhT8Q4Yr4WNGjtuP11+/bwjyKUGQq35q3XpUNS4AQiNQpc8LLi6HwOLKhnMBjw3i7z3/kJggGYD+IpUWStAzT0NK4E2Bc9ANfngdn4lEV1s8V+gBgeAJP/NThfmpHTMT8fhoNtEah2EWmG5cmP7S6qxv/n5Vb65t/AyHJ649PDNTuF4po0Ka2sMLFrqLCUCrMFEg31yqv6y3MBV0dDLW2vQwTFuZIeoRZSMxNzmyUmuqnBJjcZRAhEsTb0UKHFcajSCDF1/UDuR1nFP/xRMu1mjrWlP+BduWGDz7ExWNAAAAAElFTkSuQmCC)
+">
+                Some user</a>
+            added a code comment
+            <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
+            <a href="$entry.url"><abbr class="sha"> $entry.getShortSha()</abbr></a>
+            in <a href="$entry.getRepoUrl()">$entry.repo</a>
+        </div>
+    </div>
+#else
+<div>
+    <div class="twixi-wrap verbose actionContainer">
+        <a class="twixi" href="#"><span class="icon twixi-opened"><span>Show</span></span></a>
+        <div class="action-links">
+            <a class="icon icon-github" href="$entry.url"><span>Github</span></a>
+        </div>
+        <div class="action-details">
+            <a href="#" class="user-hover user-avatar" style="
+                background-image:
+                url('$github.getGravatarUrl()'),
+                url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsTAAALEwEAmpwYAAACH0lEQVQoFX1STWtTQRS9d2ZemlT7UgOxjVbrR0qliLWKWAQ3rkQCuhJ/gF24cKFL/4C4cOlCcKPbIlIRKehKsAgVKRq6SBSxFhUMiR+RJG++PJMnWRXvG4b75p5z75y5lx8sr91ZWmXnPTMRMXljsSw8JYUSwuOUCDvClyvH5df8yU7PGs/aEaB/tNtVzB+b3r1vvJAY+vaj6zxbT9ZxYundx+9KyIgVM3smNtYtnD28cG52ZDiDrO1Ocv9Z9e6Tt0KG4oJIRkqQlEJKFgpFDu0tXj0/tz0rTd+2Dckrldkj5TGEWEghJGGHRwyCtF5M7IwjxYmGhGBwBNOeYozQAKYIWvvKMhGXS7HR2loXZPbNaH+wFGczUZCOO6ESIz0L76mYz106vX+QPi3SS8zFU9A/jBwpGKxgQohWO3m6+jnFDXbv7fKbzcavLhT8Q4Yr4WNGjtuP11+/bwjyKUGQq35q3XpUNS4AQiNQpc8LLi6HwOLKhnMBjw3i7z3/kJggGYD+IpUWStAzT0NK4E2Bc9ANfngdn4lEV1s8V+gBgeAJP/NThfmpHTMT8fhoNtEah2EWmG5cmP7S6qxv/n5Vb65t/AyHJ649PDNTuF4po0Ka2sMLFrqLCUCrMFEg31yqv6y3MBV0dDLW2vQwTFuZIeoRZSMxNzmyUmuqnBJjcZRAhEsTb0UKHFcajSCDF1/UDuR1nFP/xRMu1mjrWlP+BduWGDz7ExWNAAAAAElFTkSuQmCC)
+">
+                Some user</a>
+            commited some code <a href="$entry.url"><abbr class="sha"> $entry.getShortSha()</abbr></a>
+            in <a href="$entry.getRepoUrl()">$entry.repo</a>
+            <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
+
+        </div>
+        <div class="action-body">
+            $entry.getText()
+        </div>
+    </div>
+    <div class="twixi-wrap concise actionContainer">
+        <a class="twixi" href="#"><span class="icon twixi-opened"><span>Show</span></span></a>
+        <div class="action-links">
+            <a class="icon icon-github" href="$entry.url"><span>Github</span></a>
+        </div>
+        <div class="action-details">
             Commit <a href="$entry.url"><abbr class="sha"> $entry.getShortSha()</abbr></a>
             in <a href="$entry.getRepoUrl()">$entry.repo</a>
             <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
-            <blockquote>$entry.getText()</blockquote>
-        </li>
-    #end
-    #end
-    #else
-        <li><div class="notify">No commits found</div></li>
-    #end
+        </div>
+    </div>
+</div>
+#end
+</div>
 
-</ul>

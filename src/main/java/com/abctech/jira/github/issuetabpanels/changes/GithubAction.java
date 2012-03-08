@@ -24,54 +24,45 @@ public class GithubAction extends AbstractIssueAction {
 	protected final IssueTabPanelModuleDescriptor descriptor;
     private static Logger log = Logger.getLogger(GithubTabPanel.class);
 
-	protected Feed feed;
+	protected FeedMessage item;
     protected String protocol;
 	
-    public GithubAction(IssueTabPanelModuleDescriptor descriptor, Feed feed, String protocol) {
+    public GithubAction(IssueTabPanelModuleDescriptor descriptor, FeedMessage item, String protocol) {
 		super(descriptor);
 		this.descriptor = descriptor;
         this.protocol = protocol;
-		this.feed = feed;
+		this.item = item;
         log.info("In the mix in action constructor!");
-		// TODO Auto-generated constructor stub
 	}
     
     public String getHtml(Action webAction) {
         log.info("In the mix in getHTML!");
-    	Map params = UtilMisc.toMap("webAction", webAction, "github", this);
+        log.info(item);
+    	Map params = UtilMisc.toMap("webAction", webAction, "github", this, "entry", item);
         return this.descriptor.getHtml("view", params);
 	}
     
     public boolean isDisplayActionAllTab() {
-        return false;
+        return true;
     } 
     
 	protected void populateVelocityParams(Map params) {
         params.put("github", this);
+        params.put("entry", item);
         params.put("msg", "Test Message");
         log.info("In the mix in populateVelocity!");
     }
 	
     public Date getTimePerformed() {
-        return null;
+        return item.getDate();
     }
     
-    public Collection<FeedMessage> getFeed()
-    {
-      return this.feed.events;
-    }
-    public boolean hasFeed() {
-        if (this.feed.events == null) {
-            return false;
-        }
-        return (this.feed.events.size() > 0);
-    }
-    public String getGravatarUrl(FeedMessage entry) {
+    public String getGravatarUrl() {
         String start = protocol + "://";
         if (protocol == "https") {
             start = protocol + "://secure.";
         }
-        return start + "gravatar.com/avatar/" + entry.getGravatar() + "?s=40";
+        return start + "gravatar.com/avatar/" + item.getGravatar() + "?s=40";
     }
 
 }
