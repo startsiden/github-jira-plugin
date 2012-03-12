@@ -6,11 +6,7 @@
         </div>
         <div class="action-details">
             <a href="#" class="user-hover user-avatar" style="
-                background-image:
-                url('$github.getGravatarUrl()'),
-                url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsTAAALEwEAmpwYAAACH0lEQVQoFX1STWtTQRS9d2ZemlT7UgOxjVbrR0qliLWKWAQ3rkQCuhJ/gF24cKFL/4C4cOlCcKPbIlIRKehKsAgVKRq6SBSxFhUMiR+RJG++PJMnWRXvG4b75p5z75y5lx8sr91ZWmXnPTMRMXljsSw8JYUSwuOUCDvClyvH5df8yU7PGs/aEaB/tNtVzB+b3r1vvJAY+vaj6zxbT9ZxYundx+9KyIgVM3smNtYtnD28cG52ZDiDrO1Ocv9Z9e6Tt0KG4oJIRkqQlEJKFgpFDu0tXj0/tz0rTd+2Dckrldkj5TGEWEghJGGHRwyCtF5M7IwjxYmGhGBwBNOeYozQAKYIWvvKMhGXS7HR2loXZPbNaH+wFGczUZCOO6ESIz0L76mYz106vX+QPi3SS8zFU9A/jBwpGKxgQohWO3m6+jnFDXbv7fKbzcavLhT8Q4Yr4WNGjtuP11+/bwjyKUGQq35q3XpUNS4AQiNQpc8LLi6HwOLKhnMBjw3i7z3/kJggGYD+IpUWStAzT0NK4E2Bc9ANfngdn4lEV1s8V+gBgeAJP/NThfmpHTMT8fhoNtEah2EWmG5cmP7S6qxv/n5Vb65t/AyHJ649PDNTuF4po0Ka2sMLFrqLCUCrMFEg31yqv6y3MBV0dDLW2vQwTFuZIeoRZSMxNzmyUmuqnBJjcZRAhEsTb0UKHFcajSCDF1/UDuR1nFP/xRMu1mjrWlP+BduWGDz7ExWNAAAAAElFTkSuQmCC)
-">
-                Some user</a>
+                background-image: url('$github.getGravatarUrl()')">Some user</a>
 #if ($entry.isComment())
             added a code comment
 #else
@@ -29,11 +25,7 @@
         <div class="action-details">
             <a class="twixi" href="#"><span class="icon twixi-closed"><span>Show</span></span></a>
             <a href="#" class="user-hover user-avatar" style="
-                background-image:
-                url('$github.getGravatarUrl()'),
-                url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsTAAALEwEAmpwYAAACH0lEQVQoFX1STWtTQRS9d2ZemlT7UgOxjVbrR0qliLWKWAQ3rkQCuhJ/gF24cKFL/4C4cOlCcKPbIlIRKehKsAgVKRq6SBSxFhUMiR+RJG++PJMnWRXvG4b75p5z75y5lx8sr91ZWmXnPTMRMXljsSw8JYUSwuOUCDvClyvH5df8yU7PGs/aEaB/tNtVzB+b3r1vvJAY+vaj6zxbT9ZxYundx+9KyIgVM3smNtYtnD28cG52ZDiDrO1Ocv9Z9e6Tt0KG4oJIRkqQlEJKFgpFDu0tXj0/tz0rTd+2Dckrldkj5TGEWEghJGGHRwyCtF5M7IwjxYmGhGBwBNOeYozQAKYIWvvKMhGXS7HR2loXZPbNaH+wFGczUZCOO6ESIz0L76mYz106vX+QPi3SS8zFU9A/jBwpGKxgQohWO3m6+jnFDXbv7fKbzcavLhT8Q4Yr4WNGjtuP11+/bwjyKUGQq35q3XpUNS4AQiNQpc8LLi6HwOLKhnMBjw3i7z3/kJggGYD+IpUWStAzT0NK4E2Bc9ANfngdn4lEV1s8V+gBgeAJP/NThfmpHTMT8fhoNtEah2EWmG5cmP7S6qxv/n5Vb65t/AyHJ649PDNTuF4po0Ka2sMLFrqLCUCrMFEg31yqv6y3MBV0dDLW2vQwTFuZIeoRZSMxNzmyUmuqnBJjcZRAhEsTb0UKHFcajSCDF1/UDuR1nFP/xRMu1mjrWlP+BduWGDz7ExWNAAAAAElFTkSuQmCC)
-">
-                Some user</a>
+                background-image: url('$github.getGravatarUrl()')">Some user</a>
 #if ($entry.isComment())
             added a code comment
 #else
