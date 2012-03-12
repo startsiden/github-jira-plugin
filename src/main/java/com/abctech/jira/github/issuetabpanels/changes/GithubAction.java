@@ -62,7 +62,7 @@ public class GithubAction extends AbstractIssueAction {
         if (protocol == "https") {
             start = protocol + "://secure.";
         }
-        return start + "gravatar.com/avatar/" + item.getGravatar() + "?s=40";
+        return start + "gravatar.com/avatar/" + item.getGravatar() + "?s=16";
     }
 
 }
