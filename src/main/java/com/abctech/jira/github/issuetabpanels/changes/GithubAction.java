@@ -32,12 +32,9 @@ public class GithubAction extends AbstractIssueAction {
 		this.descriptor = descriptor;
         this.protocol = protocol;
 		this.item = item;
-        log.info("In the mix in action constructor!");
 	}
     
     public String getHtml(Action webAction) {
-        log.info("In the mix in getHTML!");
-        log.info(item);
     	Map params = UtilMisc.toMap("webAction", webAction, "github", this, "entry", item);
         return this.descriptor.getHtml("view", params);
 	}
@@ -50,7 +47,6 @@ public class GithubAction extends AbstractIssueAction {
         params.put("github", this);
         params.put("entry", item);
         params.put("msg", "Test Message");
-        log.info("In the mix in populateVelocity!");
     }
 	
     public Date getTimePerformed() {
