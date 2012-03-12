@@ -58,10 +58,14 @@ public class GithubTabPanel extends AbstractIssueTabPanel {
             protocol = "https";
         }
         issueFeed = getFeed(jiraIssueId);
+        log.info("issueFeed:" + issueFeed);
+        if (issueFeed.events == null) {
+            return list;
+        }
         for (FeedMessage item : issueFeed.events) {
             list.add(new GithubAction(descriptor, item, protocol));
         }
-		return list;
+        return list;
 	}
 
 	@Override
