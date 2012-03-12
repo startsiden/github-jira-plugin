@@ -8,13 +8,13 @@
             <a href="#" class="user-hover user-avatar" style="
                 background-image: url('$github.getGravatarUrl()')">Some user</a>
 #if ($entry.isComment())
-            added a code comment
+            added a code
 #else
-            commited some code
+            pushed commit
 #end
-            <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
             <a href="$entry.url"><abbr class="sha"> $entry.getShortSha()</abbr></a>
-            in <a href="$entry.getRepoUrl()">$entry.repo</a>
+            to <a href="$entry.getRepoUrl()">$entry.repo</a>
+            <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
 
         </div>
         <div class="action-body flooded">
@@ -27,13 +27,13 @@
             <a href="#" class="user-hover user-avatar" style="
                 background-image: url('$github.getGravatarUrl()')">Some user</a>
 #if ($entry.isComment())
-            added a code comment
+            added a code
 #else
-            commited some code
+            pushed commit
 #end
-            <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
             <a href="$entry.url"><abbr class="sha"> $entry.getShortSha()</abbr></a>
-            in <a href="$entry.getRepoUrl()">$entry.repo</a>
+            to <a href="$entry.getRepoUrl()">$entry.repo</a>
+            <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
         </div>
     </div>
 </div>
