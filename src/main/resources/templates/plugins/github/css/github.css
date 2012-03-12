@@ -4,34 +4,3 @@
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAQAAADlauupAAAAAmJLR0T//xSrMc0AAAAJcEhZcwAAAEgAAABIAEbJaz4AAAE8SURBVDjLjZNPB0JBFMXPNqJVq2gV0SpaRds+QNtHRKuItm37Em1bRUS0bRuPiGjbKvoA0Sqi/Lqm6c+8vMP1xpxzz8yde5+UiGJRqtUsWKdGFEm7nXS/S+ezBWv24BKRyUjzuXS5SIOBVC57rlSyPTg0aH+wWEjrtdRqWUKopGbTNGh/rn06SbmcNJnYlRFut9J+b1/2RiPTHI9f5VBft2vr6dTEoYADaMl5olCQrlerK5+XbrdkA6JSMS055KrRkA4HM6tW/ycT6AE5z/W7QTZrzv8M3Ey8DN5LAO12chnjsW/5qwTAS3c6JsAAYjj0ibOZvzpAS85HG2kNLVqtpOVS2my8QRx7bbCNgCR6z+n1ug2LM3CnwaFBGxxlCGa/37eRdQY8WK9nHMbBUXbgDTjx+wHZg0uNdL/zAwdm251o0XRhAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDEyLTAyLTE0VDA5OjU4OjA4KzAxOjAwHUzYJgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMi0wMi0xNFQwOTo1ODowOCswMTowMGwRYJoAAAAASUVORK5CYII=
 ) !important;
 }
-.github {
-    list-style: none;
-    padding: 0;
-    margin: 1em;
-}
-.github li {
-    border-bottom: 1px solid #BBBBBB;
-    padding-bottom: 1em;
-    margin-bottom: 1em;
-    position: relative;
-    padding-left: 50px;
-}
-.github .content {
-    display: block;
-}
-.github  blockquote {
-    margin-left: 1em;
-}
-.github .gravatar {
-    position: absolute;
-    left: 0;
-    top: 0;
-    border: 1px solid #bbbbbb;
-    padding: 1px;
-}
-.github li:last-child {
-    border-bottom: 0px solid;
-}
-.github .date {
-    float: right;
-}
