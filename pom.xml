@@ -8,8 +8,8 @@
     <version>1.6-SNAPSHOT</version>
 
     <scm>
-        <connection>scm:git:git://github.com/startsiden/github-jira-plugin</connection>
-        <developerConnection>svm:git:git://github.com/startsiden/github-jira-plugin</developerConnection>
+        <connection>scm:git:git@github.com:startsiden/github-jira-plugin.git</connection>
+        <developerConnection>svm:git:git@github.com:startsiden/github-jira-plugin.git</developerConnection>
         <tag>HEAD</tag>
         <url>https://github.com/startsiden/github-jira-plugin</url>
     </scm>
