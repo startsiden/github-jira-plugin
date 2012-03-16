@@ -6,7 +6,7 @@
         </div>
         <div class="action-details">
             <a href="#" class="user-hover user-avatar" style="
-                background-image: url('$github.getGravatarUrl()')">Some user</a>
+                background-image: url('$github.getGravatarUrl()')"></a>
 #if ($entry.isComment())
             added a code
 #else
@@ -25,7 +25,7 @@
         <div class="action-details">
             <a class="twixi" href="#"><span class="icon twixi-closed"><span>Show</span></span></a>
             <a href="#" class="user-hover user-avatar" style="
-                background-image: url('$github.getGravatarUrl()')">Some user</a>
+                background-image: url('$github.getGravatarUrl()')"></a>
 #if ($entry.isComment())
             added a code
 #else
