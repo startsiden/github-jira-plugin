@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.abctech.jira.github</groupId>
     <artifactId>github-jira-plugin</artifactId>
-    <version>1.8-SNAPSHOT</version>
+    <version>1.8</version>
 
     <scm>
         <connection>scm:git:git@github.com:startsiden/github-jira-plugin.git</connection>
