@@ -5,8 +5,8 @@
             <a class="icon icon-github" href="$entry.url"><span>Github</span></a>
         </div>
         <div class="action-details">
-            <a href="#" class="user-hover user-avatar" style="
-                background-image: url('$github.getGravatarUrl()')"></a>
+            <a href="#" rel="$entry.getJirauser()" class="user-hover user-avatar" style="
+                background-image: url('$github.getGravatarUrl()')">$github.getJiraUser()</a>
 #if ($entry.isComment())
             added a code
 #else
@@ -23,8 +23,8 @@
     <div class="twixi-wrap concise actionContainer">
         <div class="action-details">
             <a class="twixi" href="#"><span class="icon twixi-closed"><span>Show</span></span></a>
-            <a href="#" class="user-hover user-avatar" style="
-                background-image: url('$github.getGravatarUrl()')"></a>
+            <a href="#" rel="$entry.getJirauser()" class="user-hover user-avatar" style="
+                background-image: url('$github.getGravatarUrl()')">$github.getJiraUser()</a>
 #if ($entry.isComment())
             added a code
 #else

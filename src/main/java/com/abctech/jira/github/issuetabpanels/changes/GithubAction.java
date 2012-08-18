@@ -57,7 +57,10 @@ public class GithubAction extends AbstractIssueAction {
     public String getFormattedDate() {
         return dtf.format(item.getDate());
     }
-    
+    public String getJiraUser() {
+        // TODO: MAke this return the full name of the user
+        return item.getJirauser();
+    }
     public String getGravatarUrl() {
         String start = protocol + "://";
         if (protocol == "https") {

@@ -50,7 +50,8 @@ public class JSONFeedParser {
         } catch(ConnectException e) {
             feed.add("Error connecting to webservice. Check settings?", "error");
         } catch(IOException e) {
-             log.error("ERROR Parsing JSON: ", e);
+            log.error("ERROR Parsing JSON: ", e);
+            feed.add("error parsing json: " + e, "error");
         }
         return feed;
     }
