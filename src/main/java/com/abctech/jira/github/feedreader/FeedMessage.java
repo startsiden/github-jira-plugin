@@ -23,7 +23,7 @@ public class FeedMessage {
 	public String user;
     public String email;
     public String gravatar;
-    public String jirauser = "";
+    public String remoteuser = "";
 
 	public String getText() {
 		return text;
@@ -71,6 +71,6 @@ public class FeedMessage {
         return "https://github.com/" + user + "/" + repo;
     }
     public String getJirauser() {
-        return jirauser;
+        return remoteuser;
     }
 }
