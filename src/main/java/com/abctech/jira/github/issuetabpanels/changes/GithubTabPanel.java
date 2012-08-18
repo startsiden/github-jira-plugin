@@ -84,7 +84,7 @@ public class GithubTabPanel extends AbstractIssueTabPanel {
 	private Feed getFeed(String issueId) {
         JSONFeedParser jsonFeedParser;
         jsonFeedParser = new JSONFeedParser();
-        return jsonFeedParser.getFeed( ((String)settingsFactory.createGlobalSettings().get("github.ws.url")) +  "?issue=" + issueId);
+        return jsonFeedParser.getFeed( ((String)settingsFactory.createGlobalSettings().get("github.ws.url")) +  "issue/" + issueId);
     }
 		
 }
