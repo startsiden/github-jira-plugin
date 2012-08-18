@@ -13,9 +13,8 @@
             pushed commit
 #end
             <a href="$entry.url"><abbr class="sha"> $entry.getShortSha()</abbr></a>
-            to <a href="$entry.getRepoUrl()">$entry.repo</a>
-            <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
-
+            to <a href="$entry.getRepoUrl()">$entry.repo</a> -
+            $github.getFormattedDate()
         </div>
         <div class="action-body flooded">
             $entry.getText()
@@ -32,8 +31,8 @@
             pushed commit
 #end
             <a href="$entry.url"><abbr class="sha"> $entry.getShortSha()</abbr></a>
-            to <a href="$entry.getRepoUrl()">$entry.repo</a>
-            <abbr class="date" title="$entry.getDate()">$entry.getRelativeDate()</abbr>
+            to <a href="$entry.getRepoUrl()">$entry.repo</a> -
+            $github.getFormattedDate()
         </div>
     </div>
 </div>

@@ -6,6 +6,9 @@ import java.util.List;
 
 import com.abctech.jira.github.feedreader.FeedMessage;
 import com.atlassian.crowd.embedded.api.User;
+import com.atlassian.jira.datetime.DateTimeFormatterFactory;
+import com.atlassian.jira.datetime.DateTimeStyle;
+import com.atlassian.jira.datetime.DateTimeFormatter;
 import com.atlassian.jira.util.velocity.VelocityRequestContextFactory;
 import com.atlassian.plugin.webresource.WebResourceManager;
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory;
@@ -26,16 +29,20 @@ public class GithubTabPanel extends AbstractIssueTabPanel {
 
     private final PluginSettingsFactory settingsFactory;
 
+    private final DateTimeFormatter dtFormatter;
+
     private static Logger log = Logger.getLogger(GithubTabPanel.class);
 	
 	public GithubTabPanel(PermissionManager permissionManager,
                           WebResourceManager webResourceManager,
                           VelocityRequestContextFactory requestContextFactory,
-                          PluginSettingsFactory psf) {
+                          PluginSettingsFactory psf,
+                          DateTimeFormatterFactory dtf) {
 		this.permissionManager = permissionManager;
         this.webResourceManager = webResourceManager;
         this.requestContextFactory = requestContextFactory;
         this.settingsFactory = psf;
+        this.dtFormatter = dtf.formatter().withStyle(DateTimeStyle.COMPLETE).forLoggedInUser();
 	}
 	
 	@Override
@@ -63,7 +70,7 @@ public class GithubTabPanel extends AbstractIssueTabPanel {
             return list;
         }
         for (FeedMessage item : issueFeed.events) {
-            list.add(new GithubAction(descriptor, item, protocol));
+            list.add(new GithubAction(descriptor, item, protocol, dtFormatter));
         }
         return list;
 	}

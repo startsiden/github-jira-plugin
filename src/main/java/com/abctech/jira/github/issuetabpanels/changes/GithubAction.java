@@ -9,6 +9,7 @@ import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.plugin.issuetabpanel.AbstractIssueAction;
 import com.atlassian.jira.plugin.issuetabpanel.IssueTabPanelModuleDescriptor;
 import com.atlassian.jira.util.JiraKeyUtils;
+import com.atlassian.jira.datetime.DateTimeFormatter;
 import com.atlassian.plugin.*;
 import org.apache.log4j.Logger;
 import org.ofbiz.core.util.UtilMisc;
@@ -23,15 +24,16 @@ public class GithubAction extends AbstractIssueAction {
 
 	protected final IssueTabPanelModuleDescriptor descriptor;
     private static Logger log = Logger.getLogger(GithubTabPanel.class);
-
+    private final DateTimeFormatter dtf;
 	protected FeedMessage item;
     protected String protocol;
 	
-    public GithubAction(IssueTabPanelModuleDescriptor descriptor, FeedMessage item, String protocol) {
+    public GithubAction(IssueTabPanelModuleDescriptor descriptor, FeedMessage item, String protocol, DateTimeFormatter dtf) {
 		super(descriptor);
 		this.descriptor = descriptor;
         this.protocol = protocol;
 		this.item = item;
+        this.dtf = dtf;
 	}
     
     public String getHtml(Action webAction) {
@@ -51,6 +53,9 @@ public class GithubAction extends AbstractIssueAction {
 	
     public Date getTimePerformed() {
         return item.getDate();
+    }
+    public String getFormattedDate() {
+        return dtf.format(item.getDate());
     }
     
     public String getGravatarUrl() {

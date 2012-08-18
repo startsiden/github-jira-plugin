@@ -30,40 +30,7 @@ public class FeedMessage {
 	public Date getDate() {
 		return date;
 	}
-    public String getRelativeDate() {
-        if (date == null) {
-            return "Unknown";
-        }
-        Instant now = new Instant(new Date().getTime());
-        Instant then = new Instant(date.getTime());
 
-        String suf = " ago";
-        String relative = "";
-        Interval delta;
-        if (then.isAfter(now)) {
-            suf = " in the future";
-            delta = new Interval(now, then);
-        } else {
-            delta = new Interval(then, now);
-        }
-        Period red = delta.toPeriod();
-        if (red.getYears() > 1) {
-            relative = red.getYears() + " years" + suf;
-        } else if (red.getMonths() > 1) {
-            relative = red.getMonths() + " months" + suf;
-        } else if (red.getWeeks() > 1) {
-            relative = red.getWeeks() + " weeks" + suf;
-        } else if (red.getDays() > 1) {
-            relative = red.getDays() + " days" + suf;
-        } else if (red.getHours()  > 1) {
-            relative = red.getHours() + " hours" + suf;
-        } else if (red.getMinutes() > 1) {
-            relative = red.getMinutes() + " minutes" + suf;
-        } else {
-            relative = "seconds" + suf;
-        }
-        return relative;
-    }
     public String getShortSha(int chars) {
         if (id.length() == 0) {
             return "";
