@@ -5,4 +5,6 @@ target
 github-jira-plugin.iml
 github-jira-plugin.ipr
 github-jira-plugin.iws
-*.releaseBackup
+*.releaseBackup.idea
+.idea
+*.iml
