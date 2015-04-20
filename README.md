@@ -8,6 +8,7 @@
 ## cutting a release
 
 1. run `mvn release:prepare`, this update pom.xml to release values, and make git tags etc
-2. run `mvn release:
+2. run `mvn release:perform`, this builds, tests and packages.
+3. Upload resulting file to production JIRA instance using upm in the web gui.
 
 More information https://developer.atlassian.com/docs/common-coding-tasks/development-cycle/packaging-and-releasing-your-plugin
